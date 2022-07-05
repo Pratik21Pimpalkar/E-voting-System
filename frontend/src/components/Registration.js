@@ -37,10 +37,10 @@ const Registration = ({ handleToggle }) => {
         </Grid>
 
         <Grid item xs={12}>
-          <TextField label="Password" variant="filled" name="password" value={userdata.password} onChange={HandleInputs} fullWidth />
+          <TextField label="Password" variant="filled" name="password" type="password" value={userdata.password} onChange={HandleInputs} fullWidth />
         </Grid>
         <Grid item xs={12}>
-          <TextField label="Confirm Password" variant="filled" name='cpassword' value={userdata.cpassword} onChange={HandleInputs} fullWidth />
+          <TextField label="Confirm Password" variant="filled" type="password" name='cpassword' value={userdata.cpassword} onChange={HandleInputs} fullWidth />
         </Grid>
         <Grid item xs={12}>
           <TextField label="Age" variant="filled" name="age" value={userdata.age} onChange={HandleInputs} fullWidth />
@@ -56,13 +56,13 @@ const Registration = ({ handleToggle }) => {
         </Grid>
       </Grid>
       <ToastContainer position="top-center" theme={"dark"} autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover />
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover />
     </Container>
   )
 }

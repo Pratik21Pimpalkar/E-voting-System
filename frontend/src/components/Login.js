@@ -49,7 +49,7 @@ const Login = ({ handleToggle }) => {
                 </Grid>
 
                 <Grid item xs={12}>
-                    <TextField id="filled-basic" label="Password" name="password" value={userdata.password} onChange={HandleInputs} variant="filled" fullWidth />
+                    <TextField id="filled-basic" label="Password" name="password" type="password" value={userdata.password} onChange={HandleInputs} variant="filled" fullWidth />
                 </Grid>
                 <Grid item xs={12}>
                     <Button variant='outlined' onClick={SubmitUserdata}>Login</Button>
