@@ -25,6 +25,10 @@ const UserSchema = Schema({
         required: true,
         type: String,
         trim: true,
+    },
+    voted:{
+        type:Boolean,
+        default:false,
     }
 }
 )

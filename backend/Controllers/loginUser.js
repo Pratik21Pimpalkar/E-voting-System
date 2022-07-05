@@ -11,15 +11,16 @@ try {
     const match= await comparePassword(password,user.password)
     if(!match)
     return res.status(400).send("Please enter valid credentials")
-    const token=jwt.sign({_id:user._id}, process.env.JWT_SECRET, {expiresIn:"1d"})
+    const token=jwt.sign({_id:user._id}, process.env.JWT_SECRET, {expiresIn:"3d"})
     user.password= undefined;
     user.cpassword= undefined;
-    res.json({
+    res.status(200).json({
         token,user
     })
+    
 } catch (error) {
-    console.log(error.response.data);
-    return res.status(400).send(error.response.data);
+    console.log(error);
+    return res.status(400).send(error);
 }
 
 }

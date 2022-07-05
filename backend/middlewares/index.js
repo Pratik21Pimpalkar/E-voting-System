@@ -1,6 +1,6 @@
-import expressJwt from "express-jwt"
+import ExpressJwt from "express-jwt"
 
-export const Authenticate = expressJwt({
+export const Authenticate = ExpressJwt({
     secret: process.env.JWT_SECRET,
-    algorithms: ['HS256']
+    algorithms: ['HS256'],
 })
