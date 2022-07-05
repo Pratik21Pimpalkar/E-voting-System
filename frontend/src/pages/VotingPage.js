@@ -1,9 +1,10 @@
-import { Container, Grid } from '@mui/material'
+import { Button, Container, Grid } from '@mui/material'
 import React, { useEffect, useContext, useState } from 'react'
 import ElectionParties from '../components/ElectionParties'
 import Usercard from '../components/Usercard'
 import axios from 'axios'
 import { UserContext } from '../Context'
+import { Link } from 'react-router-dom'
 
 const VotingPage = () => {
   const [state, setState] = useContext(UserContext);
@@ -31,7 +32,14 @@ const VotingPage = () => {
           <Usercard data={data} />
         </Grid>
         <Grid item xs={12} md={9}>
-          <ElectionParties validateUser={validateUser}/>
+          <ElectionParties validateUser={validateUser} />
+        </Grid>
+        <Grid item >
+          {
+            state.user.voted ? <Link to="/result" style={{ textDecoration: "none" }}>
+              <Button variant='contained'>View Voting Result</Button> </Link> :
+              <Button variant='contained' disabled>View Voting Result</Button>
+          }
         </Grid>
       </Grid>
     </Container>

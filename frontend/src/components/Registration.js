@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import axios from 'axios'
 import { Button, Container, Grid, Typography } from '@mui/material';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Registration = ({ handleToggle }) => {
   const [userdata, setUserData] = useState({ name: "", password: "", cpassword: "", age: "", address: "" })
@@ -14,8 +16,11 @@ const Registration = ({ handleToggle }) => {
   const SubmitUserdata = async () => {
     try {
       const data = await axios.post(`${process.env.REACT_APP_API}/register`, userdata)
+      toast.success("User registered Succesfully")
+
       setUserData({ name: "", password: "", cpassword: "", age: "", address: "" })
     } catch (error) {
+      toast.warn("Something goes wrong")
       console.log(error.response.data);
     }
 
@@ -50,6 +55,14 @@ const Registration = ({ handleToggle }) => {
           <Typography variant='caption' style={{ cursor: "pointer" }} onClick={handleToggle}>Already Registered? Login here!</Typography>
         </Grid>
       </Grid>
+      <ToastContainer position="top-center" theme={"dark"} autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover />
     </Container>
   )
 }

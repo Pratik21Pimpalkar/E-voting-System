@@ -2,7 +2,8 @@ import { Button, Card, CardActionArea, CardContent, CardMedia, Typography } from
 import React, { useContext } from 'react'
 import axios from 'axios'
 import { UserContext } from '../Context'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Parties = ({ partyName, imgURL, validateUser }) => {
     const [state, setState] = useContext(UserContext);
@@ -14,6 +15,7 @@ const Parties = ({ partyName, imgURL, validateUser }) => {
             }
         })
         validateUser();
+        toast.success("Voted Successfully")
     }
 
 
@@ -31,6 +33,14 @@ const Parties = ({ partyName, imgURL, validateUser }) => {
                 {(state.user.voted) ? <Button variant='contained' disabled style={{ background: "#581818", color: "white", width: "100%" }}>Already Voted</Button> :
                     <Button variant='contained' onClick={submitVote} style={{ background: "#581818", color: "white", width: "100%" }}>Vote Here</Button>}
             </Card>
+            <ToastContainer position="top-center" theme={"dark"} autoClose={2000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover />
         </div>
     )
 }
